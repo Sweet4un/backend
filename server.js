@@ -6,7 +6,15 @@ var os = require("os");
 var hostname = os.hostname();
 const cors = require("cors")
 
-app.use(cors({origin: '*'}));
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 // handling uncaught exceptions
 process.on("uncaughtException", (err) => {
