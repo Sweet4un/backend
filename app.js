@@ -6,7 +6,15 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileUpload");
 const cors = require("cors")
 
-app.use(cors({origin: '*'}));
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
