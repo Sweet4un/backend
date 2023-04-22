@@ -7,7 +7,7 @@ var hostname = os.hostname();
 const cors = require("cors")
 
 app.use(cors({
-  origin: "https://magnificent-bear-train.cyclic.app",
+  origin: "https://joyful-pithivier-9d3012.netlify.app",
 }))
 
 // handling uncaught exceptions
