@@ -6,7 +6,9 @@ var os = require("os");
 var hostname = os.hostname();
 const cors = require("cors")
 
-app.use(cors)
+app.use(cors({
+  origin: "https://magnificent-bear-train.cyclic.app",
+}))
 
 // handling uncaught exceptions
 process.on("uncaughtException", (err) => {
