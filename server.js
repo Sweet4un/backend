@@ -6,9 +6,7 @@ var os = require("os");
 var hostname = os.hostname();
 const cors = require("cors")
 
-app.use(cors({
-  origin: "https://joyful-pithivier-9d3012.netlify.app",
-}))
+app.use(cors);
 
 // handling uncaught exceptions
 process.on("uncaughtException", (err) => {
