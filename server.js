@@ -6,7 +6,7 @@ var os = require("os");
 var hostname = os.hostname();
 const cors = require("cors")
 
-app.use(cors);
+app.use(cors({origin: '*'}));
 
 // handling uncaught exceptions
 process.on("uncaughtException", (err) => {
