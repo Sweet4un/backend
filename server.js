@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const connectionDatabase = require("./config/database");
 var os = require("os");
 var hostname = os.hostname();
+const cors = require("cors")
 
 // handling uncaught exceptions
 process.on("uncaughtException", (err) => {
