@@ -22,6 +22,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(cors({
+  origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
+    methods: "GET, PUT, DELETE, POST",
+    optionsSuccessStatus: 200
+}));
+
 
 
 // handling uncaught exceptions
