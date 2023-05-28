@@ -66,34 +66,36 @@ const cors = require("cors")
 
 // app.use(cors(corsOptions));
 
-app.use(cors({
-  origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
-    methods: "GET, PUT, DELETE, POST",
-    optionsSuccessStatus: 200
-}));
+// app.use(cors({
+//   origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
+//     methods: "GET, PUT, DELETE, POST",
+//     optionsSuccessStatus: 200
+// }));
 
-app.use(cors({
-//   origin: '*',
-    origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// app.use(cors({
+// //   origin: '*',
+//     origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+//   credentials: true,
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app');
+//   next();
+// });
 
+
+app.use(cors('*'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
