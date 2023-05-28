@@ -89,6 +89,11 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app');
+  next();
+});
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
