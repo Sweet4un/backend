@@ -95,7 +95,10 @@ const cors = require("cors")
 // });
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app'
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
