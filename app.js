@@ -48,12 +48,14 @@ const errorMiddleware = require("./middleware/error");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
-const cors = require("cors");
-app.use(cors({ credentials: true, origin: "http://localhost:3002" }));
+// const cors = require("cors");
+// app.use(cors({ credentials: true, origin: "http://localhost:3002" }));
 
 // config
 
 // dotenv.config({ path: "backend/config/.env" });
+
+const cors = require("cors")
 
 app.use(cors({
   origin: '*',
