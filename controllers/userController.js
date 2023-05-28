@@ -8,6 +8,7 @@ const cloudinary = require("cloudinary");
 
 // Register user
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
@@ -30,6 +31,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 // LOGIN USER
 
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const { email, password } = req.body;
 
   // checking if user has given both email and password
@@ -56,6 +58,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 // USER LOGOUT
 
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   res.cookie("token", null, { expires: new Date(Date.now()), httpOnly: true });
 
   res.status(200).json({
@@ -67,6 +70,7 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 // forgot password
 
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
@@ -107,6 +111,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.resetPAssword = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   // creating token hash
   const resetPasswordToken = crypto
     .createHash("sha256")
@@ -143,6 +148,7 @@ exports.resetPAssword = catchAsyncErrors(async (req, res, next) => {
 // Get User Detail
 
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const user = await User.findById(req.user.id);
   res.status(200).json({
     success: true,
@@ -153,6 +159,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 // update password
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const user = await User.findById(req.user.id).select("+password");
   const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
 
@@ -174,6 +181,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 // update user profile
 
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
@@ -193,6 +201,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
 // Get all users
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const users = await User.find();
 
   res.status(200).json({
@@ -203,6 +212,7 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 
 // Get single user details ----admin
 exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const users = await User.findById(req.params.id);
 
   if (!users) {
@@ -219,6 +229,7 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
 // update user ROLe-- ADMIN
 
 exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
@@ -244,6 +255,7 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
 // DElete user -- ADMIN
 
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', "https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app")
   const user = await User.findById(req.params.id);
 
   if (!user) {
