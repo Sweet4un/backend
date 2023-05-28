@@ -57,6 +57,14 @@ const fileUpload = require("express-fileupload");
 
 const cors = require("cors")
 
+var corsOptions = {
+    origin: 'https://64738673ce74735ace3ac4dc--stately-meringue-8dd2a4.netlify.app',
+    optionsSuccessStatus: 200 // For legacy browser support
+    methods: "GET, PUT, DELETE, POST"
+}
+
+
+app.use(cors(corsOptions));
 app.use(cors({
   origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
